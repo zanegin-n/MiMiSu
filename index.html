@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiMiSU Business — Брендированная вода для компаний</title>
+    <meta name="description" content="Брендированная вода 0,5 л для компаний от 100 бутылок. Полностью оформим бутылку под ваш бренд.">
+
+    <!-- Open Graph — для красивого превью в WhatsApp/Telegram -->
+    <meta property="og:title" content="MiMiSU Business — Брендированная вода">
+    <meta property="og:description" content="Наша вода. Ваш бренд. От 100 бутылок.">
+    <meta property="og:image" content="images/logo.png">
+    <meta property="og:url" content="https://mimisu.kz">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+
+    <!-- Шрифт Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandBlue: '#3B7BFF',
+                        brandDark: '#0A1A3A',
+                        brandBg: '#F7FAFC',
+                        brandLight: '#BFD7F2',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: #F7FAFC;
+            color: #0A1A3A;
+            font-family: 'Inter', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+        select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%233B7BFF'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1.5rem center;
+            background-size: 1.25rem;
+            padding-right: 3rem !important;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F7FAFC; }
+        ::-webkit-scrollbar-thumb { background: #BFD7F2; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3B7BFF; }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="fixed top-0 w-full bg-brandBg/80 backdrop-blur-md z-50 border-b border-gray-200/50">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <a href="#" class="flex items-center gap-3">
+            <!-- Логотип PNG -->
+            <img src="images/logo.png" alt="MiMiSU" class="h-9 w-auto" onerror="this.style.display='none'">
+        </a>
+        <nav class="hidden md:flex gap-8">
+            <a href="#product" class="text-sm font-medium text-gray-600 hover:text-brandBlue transition-colors">О продукте</a>
+            <a href="#how-it-works" class="text-sm font-medium text-gray-600 hover:text-brandBlue transition-colors">Как работаем</a>
+            <a href="#showcase" class="text-sm font-medium text-gray-600 hover:text-brandBlue transition-colors">Примеры</a>
+        </nav>
+        <a href="#order" class="hidden md:inline-flex px-5 py-2.5 bg-brandBlue text-white text-sm font-medium rounded-full hover:bg-blue-600 transition-colors shadow-sm shadow-brandBlue/20">
+            Заказать
+        </a>
+    </div>
+</header>
+
+<main>
+    <!-- HERO -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden max-w-7xl mx-auto px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-12 lg:gap-20 min-h-[90vh]">
+        <div class="lg:w-1/2 z-10 flex flex-col items-start fade-up">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandLight/30 text-brandBlue text-sm font-semibold mb-8">
+                <span class="w-2 h-2 rounded-full bg-brandBlue"></span>
+                MiMiSU Business
+            </div>
+
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-brandDark leading-[1.1] tracking-tight mb-6">
+                Наша вода.<br><span class="text-brandBlue">Ваш бренд.</span>
+            </h1>
+
+            <p class="text-2xl sm:text-3xl font-semibold text-brandDark mb-6 leading-tight">
+                Брендированная вода 0,5 л для компаний от 100 бутылок.
+            </p>
+            <p class="text-lg text-gray-600 mb-10 max-w-lg leading-relaxed">
+                Полностью оформим бутылку под ваш бренд и привезём готовую продукцию.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-5 items-center w-full sm:w-auto">
+                <a href="#order" class="w-full sm:w-auto px-8 py-4 bg-brandBlue text-white text-lg font-medium rounded-xl hover:bg-blue-600 hover:scale-[1.02] transition-all duration-300 shadow-lg shadow-brandBlue/25 text-center">
+                    Рассчитать стоимость
+                </a>
+                <a href="#showcase" class="w-full sm:w-auto px-8 py-4 text-brandDark text-lg font-medium underline underline-offset-4 decoration-gray-300 hover:decoration-brandBlue hover:text-brandBlue transition-all text-center">
+                    Посмотреть примеры
+                </a>
+            </div>
+        </div>
+
+        <div class="lg:w-1/2 w-full flex justify-center lg:justify-end fade-up delay-200">
+            <div class="relative w-full max-w-md lg:max-w-lg aspect-[3/4] rounded-3xl overflow-hidden bg-gray-100">
+                <img src="images/bottle-hero.png" 
+                     alt="Брендированная бутылка воды" 
+                     class="object-cover w-full h-full"
+                     onerror="this.src='https://images.unsplash.com/photo-1548839140-29a749e1bc4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'">
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCT -->
+    <section id="product" class="py-20 md:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="max-w-3xl mb-16 fade-up">
+                <h2 class="text-4xl sm:text-5xl font-bold text-brandDark mb-6 tracking-tight">
+                    Вода, которая работает на ваш бренд.
+                </h2>
+                <p class="text-xl text-gray-600 leading-relaxed">
+                    Вы получаете готовую брендированную бутылку, которую можно раздавать клиентам, использовать на мероприятиях или дарить партнёрам.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-brandBg p-10 rounded-3xl fade-up delay-100 hover:-translate-y-1 transition-transform duration-300">
+                    <div class="w-12 h-12 bg-brandLight/50 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-brandBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brandDark mb-3">От 100 бутылок</h3>
+                    <p class="text-gray-600">Без огромных минимальных тиражей.</p>
+                </div>
+                <div class="bg-brandBg p-10 rounded-3xl fade-up delay-200 hover:-translate-y-1 transition-transform duration-300">
+                    <div class="w-12 h-12 bg-brandLight/50 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-brandBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brandDark mb-3">Ваш дизайн</h3>
+                    <p class="text-gray-600">Бутылка оформляется под ваш бренд.</p>
+                </div>
+                <div class="bg-brandBg p-10 rounded-3xl fade-up delay-300 hover:-translate-y-1 transition-transform duration-300">
+                    <div class="w-12 h-12 bg-brandLight/50 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-brandBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brandDark mb-3">Под ключ</h3>
+                    <p class="text-gray-600">От дизайна до готовой продукции.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- USE CASES -->
+    <section class="py-20 md:py-32 bg-brandBg">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <h2 class="text-4xl sm:text-5xl font-bold text-brandDark mb-16 tracking-tight fade-up">
+                Где пригодится брендированная вода
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10">
+                <div class="flex flex-col group fade-up delay-100">
+                    <div class="w-full aspect-[4/3] rounded-3xl overflow-hidden mb-6 bg-gray-200">
+                        <img src="images/clients.png" alt="Клиентам" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
+                             onerror="this.src='https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                    </div>
+                    <h3 class="text-sm font-bold text-gray-400 tracking-widest uppercase mb-2">Клиентам</h3>
+                    <p class="text-xl text-brandDark font-medium leading-snug">Оставьте бутылку клиенту после встречи, покупки или услуги.</p>
+                </div>
+                <div class="flex flex-col group fade-up delay-200">
+                    <div class="w-full aspect-[4/3] rounded-3xl overflow-hidden mb-6 bg-gray-200">
+                        <img src="images/events.png" alt="Мероприятия" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
+                             onerror="this.src='https://images.unsplash.com/photo-1515169067868-5387ec356754?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                    </div>
+                    <h3 class="text-sm font-bold text-gray-400 tracking-widest uppercase mb-2">Мероприятия</h3>
+                    <p class="text-xl text-brandDark font-medium leading-snug">Конференции, открытия, презентации, корпоративы и другие события.</p>
+                </div>
+                <div class="flex flex-col group fade-up delay-300">
+                    <div class="w-full aspect-[4/3] rounded-3xl overflow-hidden mb-6 bg-gray-200">
+                        <img src="images/gifts.png" alt="Подарки" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
+                             onerror="this.src='https://images.unsplash.com/photo-1549465220-1a8b9238cd48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                    </div>
+                    <h3 class="text-sm font-bold text-gray-400 tracking-widest uppercase mb-2">Подарки</h3>
+                    <p class="text-xl text-brandDark font-medium leading-snug">Небольшой брендированный подарок, который реально используют.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="py-20 md:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <h2 class="text-4xl sm:text-5xl font-bold text-brandDark mb-20 tracking-tight text-center md:text-left fade-up">
+                Просто от идеи до бутылки
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+                <div class="relative fade-up delay-100">
+                    <div class="text-7xl lg:text-8xl font-black text-brandLight mb-4 tracking-tighter leading-none">01</div>
+                    <p class="text-xl font-semibold text-brandDark">Вы оставляете заявку</p>
+                </div>
+                <div class="relative fade-up delay-200">
+                    <div class="text-7xl lg:text-8xl font-black text-brandLight mb-4 tracking-tighter leading-none">02</div>
+                    <p class="text-xl font-semibold text-brandDark">Мы согласовываем дизайн</p>
+                </div>
+                <div class="relative fade-up delay-300">
+                    <div class="text-7xl lg:text-8xl font-black text-brandLight mb-4 tracking-tighter leading-none">03</div>
+                    <p class="text-xl font-semibold text-brandDark">Производим брендированную воду</p>
+                </div>
+                <div class="relative fade-up delay-400">
+                    <div class="text-7xl lg:text-8xl font-black text-brandLight mb-4 tracking-tighter leading-none">04</div>
+                    <p class="text-xl font-semibold text-brandDark">Привозим готовые бутылки</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOWCASE -->
+    <section id="showcase" class="py-20 md:py-32 bg-brandBg">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <h2 class="text-4xl sm:text-5xl font-bold text-brandDark mb-16 tracking-tight fade-up">
+                Ваш бренд может выглядеть так.
+            </h2>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                <div class="aspect-[3/4] rounded-3xl overflow-hidden bg-gray-200 fade-up">
+                    <img src="images/example-1.png" alt="Пример 1" class="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
+                         onerror="this.src='https://images.unsplash.com/photo-1523362628745-0c100150b504?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                </div>
+                <div class="aspect-[3/4] rounded-3xl overflow-hidden bg-gray-200 fade-up delay-100 lg:-translate-y-8">
+                    <img src="images/example-2.png" alt="Пример 2" class="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
+                         onerror="this.src='https://images.unsplash.com/photo-1616118132534-381148898bb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                </div>
+                <div class="aspect-[3/4] rounded-3xl overflow-hidden bg-gray-200 fade-up delay-200">
+                    <img src="images/example-3.png" alt="Пример 3" class="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
+                         onerror="this.src='https://images.unsplash.com/photo-1622483767028-3f66f32aef97?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                </div>
+                <div class="aspect-[3/4] rounded-3xl overflow-hidden bg-gray-200 fade-up delay-300 lg:-translate-y-8">
+                    <img src="images/example-4.png" alt="Пример 4" class="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
+                         onerror="this.src='https://images.unsplash.com/photo-1548454238-034ea3666838?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BRAND SECTION -->
+    <section class="py-20 md:py-32 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12 lg:gap-24">
+            <div class="md:w-1/2 fade-up order-2 md:order-1">
+                <div class="aspect-square md:aspect-[4/5] rounded-[2.5rem] overflow-hidden bg-gray-50">
+                    <img src="images/label-closeup.png" alt="Этикетка" class="object-cover w-full h-full"
+                         onerror="this.src='https://images.unsplash.com/photo-1550505095-813892019eb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'">
+                </div>
+            </div>
+            <div class="md:w-1/2 fade-up delay-200 order-1 md:order-2">
+                <h2 class="text-4xl sm:text-5xl font-bold text-brandDark mb-8 tracking-tight">
+                    Не просто вода.<br><span class="text-brandBlue">Часть вашего бренда.</span>
+                </h2>
+                <p class="text-xl text-gray-600 leading-relaxed max-w-lg">
+                    Бутылка становится частью вашего визуального образа — от цветов и логотипа до готовой этикетки.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ORDER FORM -->
+    <section id="order" class="py-20 md:py-32 bg-brandBg relative">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8 relative z-10">
+            <div class="bg-white rounded-[2.5rem] p-8 md:p-16 shadow-xl shadow-brandBlue/5 fade-up">
+
+                <div id="form-container">
+                    <div class="text-center mb-10">
+                        <h2 class="text-3xl sm:text-4xl font-bold text-brandDark mb-4 tracking-tight">
+                            Сколько будет стоить вода для вашего бренда?
+                        </h2>
+                        <p class="text-lg text-gray-500">
+                            Оставьте заявку — рассчитаем стоимость и свяжемся с вами.
+                        </p>
+                    </div>
+
+                    <form id="lead-form" class="space-y-5 max-w-lg mx-auto">
+                        <div>
+                            <input type="text" id="niche" name="niche" placeholder="Сфера / ниша" required
+                                class="w-full px-6 py-4 text-lg bg-brandBg border border-transparent rounded-2xl focus:bg-white focus:border-brandBlue focus:ring-4 focus:ring-brandLight/50 outline-none transition-all placeholder:text-gray-400">
+                        </div>
+                        <div>
+                            <input type="text" id="name" name="name" placeholder="Ваше имя" required
+                                class="w-full px-6 py-4 text-lg bg-brandBg border border-transparent rounded-2xl focus:bg-white focus:border-brandBlue focus:ring-4 focus:ring-brandLight/50 outline-none transition-all placeholder:text-gray-400">
+                        </div>
+                        <div>
+                            <input type="tel" id="phone" name="phone" placeholder="Номер телефона" required
+                                class="w-full px-6 py-4 text-lg bg-brandBg border border-transparent rounded-2xl focus:bg-white focus:border-brandBlue focus:ring-4 focus:ring-brandLight/50 outline-none transition-all placeholder:text-gray-400">
+                        </div>
+                        <div>
+                            <label for="quantity" class="block text-sm font-semibold text-brandDark mb-3">
+                                Планируемое количество бутылок
+                            </label>
+                            <select id="quantity" name="quantity" required
+                                class="w-full px-6 py-4 text-lg bg-brandBg border border-transparent rounded-2xl focus:bg-white focus:border-brandBlue focus:ring-4 focus:ring-brandLight/50 outline-none transition-all appearance-none cursor-pointer text-gray-700">
+                                <option value="" disabled selected>Выберите количество</option>
+                                <option value="100-500 бутылок">100-500 бутылок</option>
+                                <option value="500-1000 бутылок">500-1000 бутылок</option>
+                                <option value="1000-3000 бутылок">1000-3000 бутылок</option>
+                                <option value="Более 3000 бутылок">Более 3000 бутылок</option>
+                                <option value="Другое">Другое (укажу в комментарии)</option>
+                            </select>
+                            <div class="mt-2 flex items-center gap-2 text-sm text-gray-500">
+                                <svg class="w-4 h-4 text-brandBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span>Минимальный заказ — от 100 бутылок</span>
+                            </div>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full px-8 py-5 bg-brandBlue text-white text-xl font-semibold rounded-2xl hover:bg-blue-600 hover:-translate-y-1 transition-all duration-300 shadow-lg shadow-brandBlue/25 mt-4 flex items-center justify-center gap-2">
+                            <span>Рассчитать стоимость</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </button>
+
+                        <p class="text-center text-xs text-gray-400 mt-4">
+                            Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                        </p>
+                    </form>
+                </div>
+
+                <!-- Success State -->
+                <div id="success-state" class="hidden text-center py-8">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 text-green-500">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-3xl font-bold text-brandDark mb-4">Спасибо! Заявка принята.</h3>
+                    <p class="text-xl text-gray-600 mb-10 max-w-md mx-auto">
+                        Наш менеджер уже готов обсудить детали. Нажмите кнопку ниже, чтобы перейти в WhatsApp.
+                    </p>
+                    <a id="wa-link" href="https://wa.me/77064111040" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-[#25D366] text-white text-lg font-medium rounded-2xl hover:bg-[#20bd5a] hover:-translate-y-1 transition-all duration-300 shadow-lg shadow-[#25D366]/25">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.893-4.443 9.893-9.892 0-2.64-1.026-5.118-2.893-6.983-1.866-1.866-4.345-2.895-6.983-2.895-5.448 0-9.893 4.444-9.893 9.892 0 1.996.536 3.864 1.554 5.56l-1.082 3.953 4.012-1.227zm11.816-6.169c-.482-.242-2.849-1.407-3.288-1.568-.44-.162-.76-.242-1.081.242s-1.241 1.568-1.521 1.89c-.281.322-.562.363-1.042.121-2.076-1.041-3.57-2.062-4.945-4.22-.241-.377.121-.362.593-1.312.162-.322.081-.603-.04-.845-.121-.242-1.081-2.608-1.481-3.572-.39-.938-.787-.811-1.081-.826-.281-.015-.603-.015-.923-.015s-.841.121-1.282.593c-.44.473-1.682 1.642-1.682 4.001 0 2.359 1.722 4.639 1.962 4.96.24.322 3.385 5.166 8.2 7.234 3.208 1.38 3.992 1.129 4.713 1.048.721-.081 2.849-1.163 3.249-2.289.4-1.126.4-2.091.28-2.289-.12-.198-.44-.319-.92-.559z"/>
+                        </svg>
+                        <span>Перейти в WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-white border-t border-gray-100 py-16 md:py-24 text-center">
+    <div class="max-w-7xl mx-auto px-6 fade-up">
+        <h2 class="text-4xl md:text-6xl font-extrabold text-brandDark mb-4 tracking-tight">
+            Наша вода.<br><span class="text-brandBlue">Ваш бренд.</span>
+        </h2>
+        <p class="text-xl text-gray-400 font-semibold mb-12 uppercase tracking-widest">
+            MiMiSU Business
+        </p>
+
+        <a href="https://wa.me/77064111040" target="_blank" rel="noopener noreferrer" class="inline-block mb-16 px-6 py-3 border-2 border-brandBlue text-brandBlue font-medium rounded-full hover:bg-brandBlue hover:text-white transition-colors duration-300">
+            Обсудить заказ в WhatsApp
+        </a>
+
+        <div class="text-gray-400 text-sm flex flex-col md:flex-row items-center justify-center gap-4">
+            <p>&copy; 2026 MiMiSU Business. Все права защищены.</p>
+            <span class="hidden md:inline-block w-1 h-1 bg-gray-300 rounded-full"></span>
+            <a href="#" class="hover:text-brandDark transition-colors">Политика конфиденциальности</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // Анимация появления при скролле
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { root: null, rootMargin: '0px', threshold: 0.15 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // Форма заявки
+        const leadForm = document.getElementById('lead-form');
+        const formContainer = document.getElementById('form-container');
+        const successState = document.getElementById('success-state');
+        const waLink = document.getElementById('wa-link');
+
+        if (leadForm) {
+            leadForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const formData = new FormData(leadForm);
+                const niche = formData.get('niche');
+                const name = formData.get('name');
+                const phone = formData.get('phone');
+                const quantity = formData.get('quantity');
+
+                // Красивое сообщение для WhatsApp — БЕЗ звёздочек, с эмодзи и переносами
+                const message = [
+                    '👋 Здравствуйте! Хочу рассчитать стоимость брендированной воды MiMiSU.',
+                    '',
+                    '📋 Данные заявки:',
+                    '👤 Имя: ' + name,
+                    '📞 Телефон: ' + phone,
+                    '💼 Сфера: ' + niche,
+                    ' Количество: ' + quantity,
+                    '',
+                    'Жду расчёт стоимости. Спасибо!'
+                ].join('\n');
+
+                waLink.href = 'https://wa.me/77064111040?text=' + encodeURIComponent(message);
+
+                // Анимация перехода
+                formContainer.style.transition = 'all 0.4s ease';
+                formContainer.style.opacity = '0';
+                formContainer.style.transform = 'translateY(-20px)';
+
+                setTimeout(() => {
+                    formContainer.classList.add('hidden');
+                    successState.classList.remove('hidden');
+
+                    successState.style.opacity = '0';
+                    successState.style.transform = 'translateY(20px)';
+                    void successState.offsetWidth;
+
+                    successState.style.transition = 'all 0.5s ease';
+                    successState.style.opacity = '1';
+                    successState.style.transform = 'translateY(0)';
+                }, 400);
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
