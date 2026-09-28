@@ -329,7 +329,8 @@
                                 <option value="900-1200 бутылок">900-1200 бутылок</option>
                                 <option value="1300-2000 бутылок">1300-2000 бутылок</option>
                                 <option value="Более 2000 бутылок">Более 2000 бутылок</option>
-                                <option value="Другое (укажу в комментарии)">Другое (укажу в комментарии)</option>
+                                <!-- ИСПРАВЛЕНО: value="Другое", чтобы скрипт мог его найти -->
+                                <option value="Другое">Другое (укажу в комментарии)</option>
                             </select>
                             <div class="mt-2 flex items-center gap-2 text-sm text-gray-500">
                                 <svg class="w-4 h-4 text-brandBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -426,8 +427,10 @@
 
         if (quantitySelect && commentWrapper) {
             quantitySelect.addEventListener('change', (e) => {
+                // ИСПРАВЛЕНО: проверяем точное совпадение с value="Другое"
                 if (e.target.value === 'Другое') {
                     commentWrapper.classList.remove('hidden');
+                    // Небольшая задержка для срабатывания CSS-анимации
                     setTimeout(() => {
                         commentWrapper.style.maxHeight = '200px';
                         commentWrapper.style.opacity = '1';
@@ -464,10 +467,10 @@
                     '👋 Здравствуйте! Хочу рассчитать стоимость брендированной воды MiMiSU.',
                     '',
                     '📋 Данные заявки:',
-                    ' Имя: ' + name,
-                    ' Телефон: ' + phone,
-                    ' Сфера: ' + niche,
-                    ' Количество: ' + quantity
+                    '👤 Имя: ' + name,
+                    '📱 Телефон: ' + phone,
+                    '🏢 Сфера: ' + niche,
+                    '📦 Количество: ' + quantity
                 ];
 
                 if (comment && comment.trim() !== '') {
@@ -490,7 +493,7 @@
 
                     successState.style.opacity = '0';
                     successState.style.transform = 'translateY(20px)';
-                    void successState.offsetWidth;
+                    void successState.offsetWidth; // Триггер перерисовки для анимации
 
                     successState.style.transition = 'all 0.5s ease';
                     successState.style.opacity = '1';
