@@ -447,6 +447,7 @@
         }
 
         // Форма заявки
+                // Форма заявки
         const leadForm = document.getElementById('lead-form');
         const formContainer = document.getElementById('form-container');
         const successState = document.getElementById('success-state');
@@ -455,6 +456,9 @@
         if (leadForm) {
             leadForm.addEventListener('submit', (e) => {
                 e.preventDefault();
+
+                // Проверяем обязательные поля
+                if (!leadForm.reportValidity()) return;
 
                 const formData = new FormData(leadForm);
                 const niche = formData.get('niche');
@@ -481,23 +485,38 @@
                 message.push('Жду расчёт стоимости. Спасибо!');
 
                 const finalMessage = message.join('\n');
-                waLink.href = 'https://wa.me/77064111040?text=' + encodeURIComponent(finalMessage);
+                const waUrl = 'https://wa.me/77064111040?text=' + encodeURIComponent(finalMessage);
 
-                formContainer.style.transition = 'all 0.4s ease';
-                formContainer.style.opacity = '0';
-                formContainer.style.transform = 'translateY(-20px)';
+                // На всякий случай обновляем ссылку в блоке успеха
+                if (waLink) {
+                    waLink.href = waUrl;
+                }
+
+                // Блокируем кнопку, чтобы нельзя было нажать дважды
+                const submitButton = leadForm.querySelector('button[type="submit"]');
+                if (submitButton) {
+                    submitButton.disabled = true;
+                    submitButton.innerHTML = '<span>Открываем WhatsApp...</span>';
+                }
+
+                // Пытаемся автоматически открыть WhatsApp
+                const newWindow = window.open(waUrl, '_blank');
+
+                // Если браузер заблокировал новое окно — открываем в текущей вкладке
+                if (!newWindow) {
+                    window.location.href = waUrl;
+                }
 
                 setTimeout(() => {
-                    formContainer.classList.add('hidden');
-                    successState.classList.remove('hidden');
+                    if (formContainer) {
+                        formContainer.classList.add('hidden');
+                    }
 
-                    successState.style.opacity = '0';
-                    successState.style.transform = 'translateY(20px)';
-                    void successState.offsetWidth; // Триггер перерисовки для анимации
-
-                    successState.style.transition = 'all 0.5s ease';
-                    successState.style.opacity = '1';
-                    successState.style.transform = 'translateY(0)';
+                    if (successState) {
+                        successState.classList.remove('hidden');
+                        successState.style.opacity = '1';
+                        successState.style.transform = 'translateY(0)';
+                    }
                 }, 400);
             });
         }
